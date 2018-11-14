@@ -71,18 +71,20 @@
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
-$foundation-palette: (
-  primary: #E5B90C,
-  secondary: #454547,
-  success: #00453D,
-  warning: #3C4671,
-  alert: #4B0B3C,
-);
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #454547;
-$black: #0a0a0a;
-$white: #fefefe;
+$black: #2B2E34;
+$white: #ffffff;
+$yellow: #FFED5C;
+$blue: #51D0E6;
+$foundation-palette: (
+  primary: $yellow,
+  secondary: $blue,
+  success: $blue,
+  warning: $yellow,
+  alert: $yellow,
+);
 $body-background: $white;
 $body-font-color: $black;
 $body-font-family: Helvetica, Arial, sans-serif;
@@ -110,7 +112,7 @@ $print-transparent-backgrounds: true;
 
 $breakpoints: (
   small: 0,
-  medium: 640px,
+  medium: 768px,
   large: 1024px,
   xlarge: 1200px,
   xxlarge: 1440px,
@@ -134,7 +136,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: serif;
+$header-font-family: "RF Rufo", Impact, sans-serif;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
@@ -143,26 +145,26 @@ $header-lineheight: 1;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 28),
-    'h2': ('font-size': 23),
-    'h3': ('font-size': 19),
-    'h4': ('font-size': 16),
+    'h1': ('font-size': 38),
+    'h2': ('font-size': 30),
+    'h3': ('font-size': 25),
+    'h4': ('font-size': 18),
     'h5': ('font-size': 16),
     'h6': ('font-size': 16),
   ),
   medium: (
-    'h1': ('font-size': 38),
-    'h2': ('font-size': 28),
-    'h3': ('font-size': 21),
-    'h4': ('font-size': 16),
+    'h1': ('font-size': 56),
+    'h2': ('font-size': 42),
+    'h3': ('font-size': 36),
+    'h4': ('font-size': 20),
     'h5': ('font-size': 16),
     'h6': ('font-size': 16),
   ),
   large: (
-    'h1': ('font-size': 54),
-    'h2': ('font-size': 36),
-    'h3': ('font-size': 24),
-    'h4': ('font-size': 16),
+    'h1': ('font-size': 56),
+    'h2': ('font-size': 42),
+    'h3': ('font-size': 36),
+    'h4': ('font-size': 20),
     'h5': ('font-size': 16),
     'h6': ('font-size': 16),
   ),
@@ -414,7 +416,7 @@ $dropdown-menu-item-background-active: transparent;
 // 19. Flexbox Utilities
 // ---------------------
 
-$flex-source-ordering-count: 6;
+$flex-source-ordering-count: 12;
 $flexbox-responsive-breakpoints: true;
 
 // 20. Forms
@@ -877,6 +879,6 @@ $grid-margin-gutters: (
   medium: 30px
 );
 $grid-padding-gutters: $grid-margin-gutters;
-$grid-container-padding: $grid-padding-gutters;
+$grid-container-padding: 0;
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;

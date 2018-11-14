@@ -44,7 +44,7 @@
     }
   }
   
-  .h#{$i} {
+  .height#{$i} {
     height: $n+rem !important;
     overflow-y: visible;
   }
@@ -55,7 +55,29 @@
       overflow-y: visible;
     }
   }
-  
+}
+
+$colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
+
+@each $color in $colors {
+  .small-bg-#{nth($color,1)} {
+    background-color: nth($color,2);
+  }
+}
+
+@include breakpoint(medium) {
+  @each $color in $colors {
+    .medium-bg-#{nth($color,1)} {
+      background-color: nth($color,2);
+    }
+  }
+}
+@include breakpoint(large) {
+  @each $color in $colors {
+    .large-bg-#{nth($color,1)} {
+      background-color: nth($color,2);
+    }
+  }
 }
 
 .h100 {
@@ -91,6 +113,6 @@
 }
 
 .full {
-  padding: 0;
+  padding: 0 !important;
 }
 
