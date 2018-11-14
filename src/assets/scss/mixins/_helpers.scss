@@ -80,6 +80,11 @@ $colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
   }
 }
 
+.small-bg-pattern {
+  background-image: url(/assets/img/HALLEY_RISE-pattern.png);
+  background-repeat: repeat;
+}
+
 .h100 {
   min-height: 100%;
 }
