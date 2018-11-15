@@ -63,6 +63,9 @@ $colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
   .small-bg-#{nth($color,1)} {
     background-color: nth($color,2);
   }
+  .small-color-#{nth($color,1)} {
+    color: nth($color,2);
+  }
 }
 
 @include breakpoint(medium) {
@@ -70,12 +73,18 @@ $colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
     .medium-bg-#{nth($color,1)} {
       background-color: nth($color,2);
     }
+    .medium-color-#{nth($color,1)} {
+      color: nth($color,2);
+    }
   }
 }
 @include breakpoint(large) {
   @each $color in $colors {
     .large-bg-#{nth($color,1)} {
       background-color: nth($color,2);
+    }
+    .large-color-#{nth($color,1)} {
+      color: nth($color,2);
     }
   }
 }
