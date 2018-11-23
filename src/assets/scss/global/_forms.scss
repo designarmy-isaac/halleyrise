@@ -6,91 +6,115 @@
 
 .group {
   position: relative;
-  margin-bottom: rem-calc(45);
 }
 
-.custom-form input[type="text"],
-.custom-form input[type="email"],
-.custom-form input[type="password"],
-.custom-form input[type="date"],
-.custom-form input[type="number"],
-.custom-form input[type="search"],
-.custom-form input[type="url"],
-.custom-form input[type="tel"],
-.custom-form input[type="month"],
-.custom-form select {
-  border: none;
-  border-bottom: 1px solid $white;
-  background: none;
-  padding-left: .25rem;
-}
-.custom-form input[type="text"]:focus,
-.custom-form input[type="email"]:focus,
-.custom-form input[type="password"]:focus,
-.custom-form input[type="date"]:focus,
-.custom-form input[type="number"]:focus,
-.custom-form input[type="search"]:focus,
-.custom-form input[type="url"]:focus,
-.custom-form input[type="tel"]:focus,
-.custom-form input[type="month"]:focus,
-.custom-form select:focus {
-  outline: none;
-  border-bottom: 1px solid $primary-color;
-  background: none;
-}
+.custom-form {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  input[type="number"],
+  input[type="search"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="month"],
+  select {
+    background: $yellow;
+    font-family: $body-font-family;
+    text-transform: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    min-height: 4rem;
+    margin: 0;
+    padding-left: 1rem;
+    padding-bottom: 0;
+    font-size: 1.25rem;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  input[type="date"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="url"]:focus,
+  input[type="tel"]:focus,
+  input[type="month"]:focus,
+  select:focus,
+  input[type="text"]:hover,
+  input[type="email"]:hover,
+  input[type="password"]:hover,
+  input[type="date"]:hover,
+  input[type="number"]:hover,
+  input[type="search"]:hover,
+  input[type="url"]:hover,
+  input[type="tel"]:hover,
+  input[type="month"]:hover,
+  select:hover
+  {
+    outline: none;
+    background: scale-color($yellow, $lightness: +15%);;
+  }
 
-.custom-form label {
-  font-family: $accent-font-family;
-  color: inherit;
-  font-weight: 900;
-  position: absolute;
-  pointer-events: none;
-  left: rem-calc(5);
-  top: rem-calc(10);
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
+  label {
+    color: inherit;
+    position: absolute;
+    pointer-events: none;
+    left: 1rem;
+    top: 1.25rem;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
 
-/* full state */
-.custom-form input.full ~ label,
-.custom-form select ~ label {
-  top: -1.25rem;
-  font-size: .9rem;
-}
+  /* full state */
+  input.input-full ~ label,
+  select ~ label {
+    top: .5rem;
+    font-size: 1rem;
+  }
 
+  /* focused state */
+  input:focus ~ label,
+  select:focus ~ label {
+    top: .5rem;
+    font-size: 1rem;
+  }
 
-/* focused state */
-.custom-form input:focus ~ label,
-.custom-form select:focus ~ label {
-  top: -1.25rem;
-  font-size: .9rem;
-  color: $primary-color;
-}
+  .dropdown label {
+    width: 100%;
+  }
 
-.custom-form .dropdown label {
-  width: 100%;
-}
+  .dropdown label::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 2.25rem;
+    right: .5rem;
+    width: 0; 
+    height: 0; 
+    border-left: .4rem solid transparent;
+    border-right: .4rem solid transparent;
+    border-top: .4rem solid $white;
+  }
 
-.custom-form .dropdown label::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 2.25rem;
-  right: .5rem;
-  width: 0; 
-  height: 0; 
-  border-left: .4rem solid transparent;
-  border-right: .4rem solid transparent;
-  border-top: .4rem solid $white;
-}
+  .dropdown select:focus ~label::after {
+      border-top: .4rem solid $primary-color;
+  }
 
-.custom-form .dropdown select:focus ~label::after {
-    border-top: .4rem solid $primary-color;
-}
-
-.custom-form .form-error {
-  position: absolute;
-  left: .35rem;
-  top: 3rem;
+  .form-error {
+    position: absolute;
+    left: .35rem;
+    top: 3rem;
+  }
+  .button {
+    @extend .h3;
+    text-decoration: underline;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+    min-height: 4rem;
+    line-height: 1;
+  }
 }

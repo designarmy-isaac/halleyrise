@@ -49,12 +49,23 @@
     overflow-y: visible;
   }
   
-  .large-h#{$i} {
+  .large-height#{$i} {
     @include breakpoint(large) {
       height: $n+rem !important;
       overflow-y: visible;
     }
   }
+}
+
+$fractions: ("025", 0.25rem), ("05", 0.5rem), ("075", 0.75rem);
+
+@each $fraction in $fractions {
+  .pb#{nth($fraction,1)} {
+    padding-bottom: nth($fraction,2);
+  }
+  .pt#{nth($fraction,1)} {
+    padding-top: nth($fraction,2);
+  } 
 }
 
 $colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
@@ -92,7 +103,7 @@ $colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
 .small-bg-pattern {
   background-image: url(/assets/img/HALLEY_RISE-pattern.png);
   background-repeat: repeat;
-  background-size: 200px;
+  background-size: 250px;
   @include breakpoint(large) {
     background-size: 400px;
   }
@@ -134,3 +145,6 @@ $colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
   padding: 0 !important;
 }
 
+.clickable {
+  cursor: pointer;
+}

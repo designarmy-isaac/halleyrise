@@ -165,49 +165,49 @@ $(function() {
 ================================================== Form Handling
 ==================================================
 */ 
-//
-//let input_selector =
-//  'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], input[type=date], input[type=time], textarea';
-//
-//var inputUI = function () {
-//  let inputs = $(input_selector);
-//  inputs.each(function(index, el) {
-//    let $this = $(this);
-//    if (
-//      el.value.length > 0 ||
-//      $(el).is(':focus') ||
-//      el.autofocus ||
-//      $this.attr('placeholder') !== ""
-//    ) {
-//      $this.addClass('full'); //console.log('added full to input ' + index);
-//    } else {
-//      $this.removeClass('full'); //console.log('removed full from input ' + index);
-//    }
-//  });
-//}
-//
-//$(function() {
-//  inputUI();
-//});
-//
-//document.addEventListener('focus', function(e) {
-//    if ($(e.target).is(input_selector)) {
-//      $(e.target).addClass('full');
-//    }
-//  }, true);
-//
-//document.addEventListener('blur', function(e) {
-//    let $inputElement = $(e.target);
-//    if ($inputElement.is(input_selector)) {
-//      if (
-//        $inputElement[0].value.length === 0 &&
-//        $inputElement.attr('placeholder') === ""
-//      ) {
-//        $inputElement.removeClass('full');
-//      }
-//    }
-//  },true);
-//
+
+let input_selector =
+  'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], input[type=date], input[type=time], textarea';
+
+var inputUI = function () {
+  let inputs = $(input_selector);
+  inputs.each(function(index, el) {
+    let $this = $(this);
+    if (
+      el.value.length > 0 ||
+      $(el).is(':focus') ||
+      el.autofocus ||
+      $this.attr('placeholder') !== ""
+    ) {
+      $this.addClass('input-full'); //console.log('added full to input ' + index);
+    } else {
+      $this.removeClass('input-full'); //console.log('removed full from input ' + index);
+    }
+  });
+}
+
+$(function() {
+  inputUI();
+});
+
+document.addEventListener('focus', function(e) {
+  if ($(e.target).is(input_selector)) {
+    $(e.target).addClass('input-full');
+  }
+}, true);
+
+document.addEventListener('blur', function(e) {
+  let $inputElement = $(e.target);
+  if ($inputElement.is(input_selector)) {
+    if (
+      $inputElement[0].value.length === 0 &&
+      $inputElement.attr('placeholder') === ""
+    ) {
+      $inputElement.removeClass('full');
+    }
+  }
+},true);
+
 //$(function(){
 //  if(window.location.href.indexOf('#form-submission-successful') != -1) {
 //    $.ajax('form-submission-successful-modal.html').
@@ -218,7 +218,7 @@ $(function() {
 //  }
 //});
 
-// HTML DOM FORM RESET handling
+//// HTML DOM FORM RESET handling
 //$(document).on('reset', function(e) {
 //  let formReset = $(e.target);
 //  if (formReset.is('form')) {

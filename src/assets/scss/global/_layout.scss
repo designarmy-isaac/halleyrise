@@ -9,6 +9,16 @@ body,
   overflow-x: hidden;
 }
 
+.grid-padding-y .cell {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.grid-padding-x .cell {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
 .slideshow {
   position: absolute;
   top: 0;
