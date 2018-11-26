@@ -68,11 +68,27 @@ $fractions: ("025", 0.25rem), ("05", 0.5rem), ("075", 0.75rem);
   } 
 }
 
+.small-bg-pattern-l,
+.small-bg-pattern-r {
+  background-repeat: repeat;
+  background-size: 250px;
+  @include breakpoint(large) {
+    background-size: 400px;
+  }
+}
+.small-bg-pattern-l {
+  background-image: url(/assets/img/HALLEY_RISE-pattern-l.png);
+}
+.small-bg-pattern-r {
+  background-image: url(/assets/img/HALLEY_RISE-pattern-r.png);
+}
+
 $colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
 
 @each $color in $colors {
   .small-bg-#{nth($color,1)} {
     background-color: nth($color,2);
+    background-image: none;
   }
   .small-color-#{nth($color,1)} {
     color: nth($color,2);
@@ -83,6 +99,7 @@ $colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
   @each $color in $colors {
     .medium-bg-#{nth($color,1)} {
       background-color: nth($color,2);
+      background-image: none;
     }
     .medium-color-#{nth($color,1)} {
       color: nth($color,2);
@@ -93,24 +110,12 @@ $colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
   @each $color in $colors {
     .large-bg-#{nth($color,1)} {
       background-color: nth($color,2);
+      background-image: none;
     }
     .large-color-#{nth($color,1)} {
       color: nth($color,2);
     }
   }
-}
-
-.small-bg-pattern {
-  background-image: url(/assets/img/HALLEY_RISE-pattern.png);
-  background-repeat: repeat;
-  background-size: 250px;
-  @include breakpoint(large) {
-    background-size: 400px;
-  }
-}
-
-.h100 {
-  min-height: 100%;
 }
 
 .position-absolute {
@@ -129,7 +134,7 @@ $colors: ("yellow",$yellow),("blue",$blue),("black",$black),("white",$white);
   top: 50%
 }
 
-.height-100-percent {
+.height100 {
   height: 100%;
 }
 

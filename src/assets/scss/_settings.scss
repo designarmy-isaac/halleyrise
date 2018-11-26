@@ -74,7 +74,7 @@ $global-lineheight: 1.5;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #454547;
-$black: #2B2E34;
+$black: #191a1c;
 $white: #ffffff;
 $yellow: #FFED5C;
 $blue: #51D0E6;
@@ -114,11 +114,11 @@ $breakpoints: (
   small: 0,
   medium: 768px,
   large: 1024px,
-  xlarge: 1200px,
+  xlarge: 1270px,
   xxlarge: 1440px,
 );
 $print-breakpoint: large;
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (small medium large xlarge);
 
 // 3. The Grid
 // -----------
@@ -126,8 +126,8 @@ $breakpoint-classes: (small medium large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-  small: 20px,
-  medium: 30px,
+  small: 10px,
+  medium: 16px,
 );
 $grid-column-align-edge: true;
 $grid-column-alias: 'columns';
@@ -142,21 +142,25 @@ $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
 $header-lineheight: .9;
-$header-margin-bottom: 0.5rem;
+$header-margin-bottom: 0;
 $header-styles: (
   small: (
     'h1': ('font-size': 38),
-    'h2': ('font-size': 36),
+    'h2': ('font-size': 36,
+           'margin-bottom': 1rem),
     'h3': ('font-size': 24),
-    'h4': ('font-size': 22),
-    'h5': ('font-size': 16),
-    'h6': ('font-size': 16),
+    'h4': ('font-size': 24, 
+           'line-height': 1),
+    'h5': ('font-size': 16, 
+           'line-height': 1),
+    'h6': ('font-size': 16, 
+           'line-height': 1),
   ),
   medium: (
     'h1': ('font-size': 56),
     'h2': ('font-size': 42),
     'h3': ('font-size': 36),
-    'h4': ('font-size': 20),
+    'h4': ('font-size': 18),
     'h5': ('font-size': 16),
     'h6': ('font-size': 16),
   ),
@@ -164,10 +168,26 @@ $header-styles: (
     'h1': ('font-size': 56),
     'h2': ('font-size': 42),
     'h3': ('font-size': 36),
-    'h4': ('font-size': 20),
+    'h4': ('font-size': 18),
     'h5': ('font-size': 16),
     'h6': ('font-size': 16),
   ),
+  xlarge: (
+    'h1': ('font-size': 60),
+    'h2': ('font-size': 42),
+    'h3': ('font-size': 36),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 16),
+    'h6': ('font-size': 16),
+  ),
+  xxlarge: (
+    'h1': ('font-size': 60),
+    'h2': ('font-size': 56),
+    'h3': ('font-size': 42),
+    'h4': ('font-size': 24),
+    'h5': ('font-size': 16),
+    'h6': ('font-size': 16),
+  )
 );
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;

@@ -10,6 +10,27 @@ $(function() {
 
 /*
 ==================================================
+================================================== Slideshow Animation
+==================================================
+*/
+  
+$(function() {
+  $('#hero-slideshow > .slide:gt(0)').hide();
+  var counter = 0;
+  var nSlides = $('.slide').length; 
+  setInterval(function() {
+    counter++;
+    $('#hero-slideshow > .slide:first')
+      .fadeOut(2000)
+      .next()
+      .fadeIn(2000)
+      .end()
+      .appendTo('#hero-slideshow');
+  }, 6000);
+});
+
+/*
+==================================================
 ================================================== Scrolling Slideshow Animation
 ==================================================
 */
@@ -86,31 +107,6 @@ $(function() {
 //  }
 //});
 
-
-/*
-==================================================
-================================================== Slideshow Animation
-==================================================
-*/
-//$(function() {
-//  $('#hero-slideshow > .slide:gt(0)').hide();
-//  var counter = 0;
-//  var nSlides = $('.slide').length; 
-//  setInterval(function() {
-//    counter++;
-//    $('#hero-slideshow > .slide:first')
-//      .fadeOut(2000)
-//      .next()
-//      .fadeIn(2000)
-//      .end()
-//      .appendTo('#hero-slideshow');
-//    if (counter == 1) {
-//      $('#landing-logo-animation').fadeOut(500);
-////      remove();
-//      sizeSlideshow();
-//    }
-//  }, 4000);
-//});
 
 /*
 ==================================================

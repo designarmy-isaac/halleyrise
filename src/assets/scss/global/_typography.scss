@@ -5,6 +5,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   text-transform: uppercase;
+  max-width: 500px;
 }
 
 h5, .h5,
@@ -16,3 +17,10 @@ h6, .h6 {
   font-size: 0.875rem;
 }
 
+p {
+  max-width: 32rem;
+}
+
+footer p {
+  max-width: none;
+}

@@ -25,7 +25,6 @@
     outline: none;
     border: none;
     width: 100%;
-    min-height: 4rem;
     margin: 0;
     padding-left: 1rem;
     padding-bottom: 0;
@@ -58,27 +57,43 @@
 
   label {
     color: inherit;
+    font-family: $header-font-family;
+    font-size: 1.5rem;
+    text-transform: uppercase;
     position: absolute;
     pointer-events: none;
     left: 1rem;
-    top: 1.25rem;
+    top: .55rem;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
+    @include breakpoint(large) {
+      top: .35rem;
+    }
   }
 
   /* full state */
   input.input-full ~ label,
   select ~ label {
-    top: .5rem;
+    top: .15rem;
     font-size: 1rem;
+    @include breakpoint(large) {
+      top: .15rem;
+    }
   }
 
   /* focused state */
   input:focus ~ label,
   select:focus ~ label {
-    top: .5rem;
+    top: .15rem;
     font-size: 1rem;
+    @include breakpoint(large) {
+      top: .15rem;
+    }
   }
 
   .dropdown label {
@@ -108,13 +123,50 @@
     top: 3rem;
   }
   .button {
-    @extend .h3;
-    text-decoration: underline;
     color: inherit;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 0;
     width: 100%;
     height: 100%;
-    margin-bottom: 0;
-    min-height: 4rem;
-    line-height: 1;
+    @include breakpoint(large) {
+      background: $black;
+      color: $white;
+//      margin-bottom: 2rem;
+      padding-top: .9rem;
+    }
+    span {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+  }
+}
+
+.response {
+  padding: 1rem;
+}
+
+#mce-EMAIL,
+#mc-embedded-subscribe {
+  height: 4rem;
+  @include breakpoint(large) {
+    height: 3.5rem;
+    width: 100%;
+  }
+}
+#mce-EMAIL {
+  @include breakpoint(medium) {
+    padding-top: 1rem;
+  }
+  @include breakpoint(large) {
+    background: $white;
+  }
+}
+.mc-field-group {
+  @include breakpoint(large) {
+    margin-left: 1rem;
+    margin-bottom: 3rem;
   }
 }
