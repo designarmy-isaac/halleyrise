@@ -8,6 +8,16 @@
   position: relative;
 }
 
+.button.special {
+  background: $black;
+  color: $white;
+  &:hover,
+  &:focus {
+    background: $blue;
+    color: $black;
+  }
+}
+
 .custom-form {
   input[type="text"],
   input[type="email"],
@@ -137,10 +147,6 @@
       color: $white;
 //      margin-bottom: 2rem;
       padding-top: 1.1rem;
-    }
-    span {
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
     }
   }
 }
