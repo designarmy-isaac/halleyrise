@@ -23,14 +23,26 @@
     {{> webfonts}}
     
   </head>
-    <body class="no-js">
+    <body class="no-js document">
     {{> no-script-analytics}}
     
     {{> header}}
-    
-    {{> body}}
-    
-    {{> footer}}
+      <div class="grid-x grid-padding-x pt2 pb6">
+        <div class="cell small-8 medium-4 xlarge-3 xlarge-offset-1 mb3 full">
+          <a href="{{root}}"><img alt="Halley Rise | A Brookfield Place" src="{{root}}assets/img/HALLEY_RISE-logo.svg"></a>
+        </div>
+        <div class="cell small-12 medium-7 large-7 pt025">
+          {{> body}}
+        </div>
+      </div>
+      
+      <div class="grid-x grid-x-padding small-bg-black small-color-white">
+        <div class="cell small-12 medium-11 large-7 large-offset-4 large-protect-width">
+          <footer class="grid-x grid-padding-x pb2 pt2">
+            {{> footer}}
+          </footer>
+        </div>
+      </div>
     
     <script src="{{root}}assets/js/app.js"></script>
   </body>

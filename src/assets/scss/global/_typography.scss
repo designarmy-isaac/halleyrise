@@ -5,7 +5,12 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   text-transform: uppercase;
-  max-width: 500px;
+  max-width: 32rem;
+}
+
+h1, .h1,
+h2, .h2 {
+  letter-spacing: -.5px;
 }
 
 h5, .h5,
@@ -17,10 +22,44 @@ h6, .h6 {
   font-size: 0.875rem;
 }
 
-p {
+p,
+ul,
+ol {
   max-width: 32rem;
+  letter-spacing: -.1px;
+  strong {
+    letter-spacing: -.3px;
+  }
 }
 
 footer p {
   max-width: none;
+}
+
+.document {
+  h1, ,h1 {
+    padding-bottom: 2rem;
+  }
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,
+  h5, .h5,
+  h6, .h6 {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  p,
+  ul,
+  ol {
+    max-width: 48rem;
+  }
+  
+  li {
+    margin-top: .5rem;
+    margin-left: 1rem;
+  }
+  
 }
