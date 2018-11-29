@@ -16,3 +16,35 @@
     font-size: 1.25rem;
   }
 }
+
+#popup-close {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  right: .75rem;
+}
+
+.close-icon {
+  cursor: pointer;
+  padding: 1rem;
+  margin: 0;
+  display: inline-block;
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1.5rem;
+    background-color: $black;
+    transform: rotate(45deg);
+  }
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1.5rem;
+    background-color: $black;
+    transform: rotate(-45deg);
+    position: relative;
+    left: -2px;
+  }
+}

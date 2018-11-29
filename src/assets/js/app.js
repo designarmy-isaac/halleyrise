@@ -97,7 +97,7 @@ if (!docCookies.hasItem('halleyrisecookieconsent')) {
   showPopup($('#popup-cookie-consent'));
 }
 
-$('#button-cookie-consent').click(function() {
+$('.button-cookie-consent').click(function() {
   closePopup($('#popup-cookie-consent'));
   docCookies.setItem('halleyrisecookieconsent',true, 'Infinity');
 });
