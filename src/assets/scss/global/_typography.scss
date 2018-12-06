@@ -68,3 +68,14 @@ footer p {
   }
   
 }
+
+a.no-link-style {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: inherit;
+  &:hover {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: underline;
+  }
+}
