@@ -1,22 +1,6 @@
 # Apache Server Configs v3.0.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
-# ######################################################################
-# # CACHEING                                                           #
-# ######################################################################
-
-# One year for image files
-
-<filesMatch ".(jpg|jpeg|png|gif|ico|svg|woff|woff2)$">
-    Header set Cache-Control "max-age=31536000, public"
-</filesMatch>
-
-# One month for css and js
-
-<filesMatch ".(css|js)$">
-    Header set Cache-Control "max-age=5256000, public"
-</filesMatch>
-
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have
 # access to the main server configuration file (which is usually called
 # `httpd.conf`), you should add this logic there.
@@ -391,13 +375,13 @@ AddDefaultCharset utf-8
 #
 #     https://github.com/h5bp/server-configs-apache/issues/52
 
-<IfModule mod_rewrite.c>
+# <IfModule mod_rewrite.c>
     RewriteEngine On
     # (1)
     # RewriteCond %{HTTPS} !=on
     RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
     RewriteRule ^ %{ENV:PROTO}://%1%{REQUEST_URI} [R=301,L]
-</IfModule>
+# </IfModule>
 
 # ----------------------------------------------------------------------
 # | Forcing the `www.` at the beginning of URLs                        |
@@ -621,14 +605,13 @@ AddDefaultCharset utf-8
 # (3) https://tools.ietf.org/html/rfc6797#section-7.2
 # (4) https://stackoverflow.com/questions/24144552/how-to-set-hsts-header-from-htaccess-only-on-https/24145033#comment81632711_24145033
 
-<IfModule mod_headers.c>
-    Header always set Strict-Transport-Security "max-age=3600; includeSubDomains"
-    # Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
-    # (1) or if HSTS preloading is desired (respect (2) for current requirements):
-    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
-    # (4) respectively… (respect (2) for current requirements):
-    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" "expr=%{HTTPS} == 'on'"
-</IfModule>
+# <IfModule mod_headers.c>
+#     Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
+#     # (1) or if HSTS preloading is desired (respect (2) for current requirements):
+#     # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+#     # (4) respectively… (respect (2) for current requirements):
+#     # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" "expr=%{HTTPS} == 'on'"
+# </IfModule>
 
 # ----------------------------------------------------------------------
 # | Reducing MIME type security risks                                  |
@@ -888,33 +871,42 @@ ServerSignature Off
 #
 # https://httpd.apache.org/docs/current/mod/mod_brotli.html#precompressed
 
- <IfModule mod_headers.c>
-     RewriteCond %{HTTP:Accept-Encoding} br
-     RewriteCond %{REQUEST_FILENAME}\.br -f
-     RewriteRule \.(css|ics|js|json|html|svg)$ %{REQUEST_URI}.br [L]
-     # Prevent mod_deflate double gzip
-     RewriteRule \.br$ - [E=no-gzip:1]
-     <FilesMatch "\.br$">
-         <IfModule mod_mime.c>
-             # Serve correct content types
-             AddType text/css              css.br
-             AddType text/calendar         ics.br
-             AddType text/javascript       js.br
-             AddType application/json      json.br
-             AddType text/html             html.br
-             AddType image/svg+xml         svg.br
-             # Serve correct content charset
-             AddCharset utf-8 .css.br \
-                              .ics.br \
-                              .js.br \
-                              .json.br
-         </IfModule>
-         # Force proxies to cache brotlied and non-brotlied files separately
-         Header append Vary Accept-Encoding
-     </FilesMatch>
-     # Serve correct encoding type
-     AddEncoding br .br
- </IfModule>
+# <IfModule mod_headers.c>
+
+#     RewriteCond %{HTTP:Accept-Encoding} br
+#     RewriteCond %{REQUEST_FILENAME}\.br -f
+#     RewriteRule \.(css|ics|js|json|html|svg)$ %{REQUEST_URI}.br [L]
+
+#     # Prevent mod_deflate double gzip
+#     RewriteRule \.br$ - [E=no-gzip:1]
+
+#     <FilesMatch "\.br$">
+
+#         <IfModule mod_mime.c>
+#             # Serve correct content types
+#             AddType text/css              css.br
+#             AddType text/calendar         ics.br
+#             AddType text/javascript       js.br
+#             AddType application/json      json.br
+#             AddType text/html             html.br
+#             AddType image/svg+xml         svg.br
+
+#             # Serve correct content charset
+#             AddCharset utf-8 .css.br \
+#                              .ics.br \
+#                              .js.br \
+#                              .json.br
+#         </IfModule>
+
+#         # Force proxies to cache brotlied and non-brotlied files separately
+#         Header append Vary Accept-Encoding
+
+#     </FilesMatch>
+
+#     # Serve correct encoding type
+#     AddEncoding br .br
+
+# </IfModule>
 
 # ----------------------------------------------------------------------
 # | GZip pre-compressed content                                        |
@@ -936,46 +928,46 @@ ServerSignature Off
 # order to keep default behavior regarding .gz files.
 # https://httpd.apache.org/docs/current/mod/mod_mime.html#removetype
 
- <IfModule mod_headers.c>
+# <IfModule mod_headers.c>
 
-     RewriteCond %{HTTP:Accept-Encoding} gzip
-     RewriteCond %{REQUEST_FILENAME}\.gz -f
-     RewriteRule \.(css|ics|js|json|html|svg)$ %{REQUEST_URI}.gz [L]
+#     RewriteCond %{HTTP:Accept-Encoding} gzip
+#     RewriteCond %{REQUEST_FILENAME}\.gz -f
+#     RewriteRule \.(css|ics|js|json|html|svg)$ %{REQUEST_URI}.gz [L]
 
-     # Prevent mod_deflate double gzip
-     RewriteRule \.gz$ - [E=no-gzip:1]
+#     # Prevent mod_deflate double gzip
+#     RewriteRule \.gz$ - [E=no-gzip:1]
 
-     <FilesMatch "\.gz$">
+#     <FilesMatch "\.gz$">
 
-         # Serve correct content types
-         <IfModule mod_mime.c>
-             # (1)
-             RemoveType gz
+#         # Serve correct content types
+#         <IfModule mod_mime.c>
+#             # (1)
+#             RemoveType gz
 
-             # Serve correct content types
-             AddType text/css              css.gz
-             AddType text/calendar         ics.gz
-             AddType text/javascript       js.gz
-             AddType application/json      json.gz
-             AddType text/html             html.gz
-             AddType image/svg+xml         svg.gz
+#             # Serve correct content types
+#             AddType text/css              css.gz
+#             AddType text/calendar         ics.gz
+#             AddType text/javascript       js.gz
+#             AddType application/json      json.gz
+#             AddType text/html             html.gz
+#             AddType image/svg+xml         svg.gz
 
-             # Serve correct content charset
-             AddCharset utf-8 .css.gz \
-                              .ics.gz \
-                              .js.gz \
-                              .json.gz
-         </IfModule>
+#             # Serve correct content charset
+#             AddCharset utf-8 .css.gz \
+#                              .ics.gz \
+#                              .js.gz \
+#                              .json.gz
+#         </IfModule>
 
-         # Force proxies to cache gzipped and non-gzipped files separately
-         Header append Vary Accept-Encoding
+#         # Force proxies to cache gzipped and non-gzipped files separately
+#         Header append Vary Accept-Encoding
 
-     </FilesMatch>
+#     </FilesMatch>
 
-     # Serve correct encoding type
-     AddEncoding gzip .gz
+#     # Serve correct encoding type
+#     AddEncoding gzip .gz
 
- </IfModule>
+# </IfModule>
 
 # ----------------------------------------------------------------------
 # | Content transformation                                             |
